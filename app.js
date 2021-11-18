@@ -30,16 +30,41 @@ class Motorcycle extends Vehicle {
 }
 
 // Still iterating on solution.
-class Garage {
-  constructor(vehicles, capacity) {
-    this.vehicles = vehicles[];
-    this.capacity = capacity;
+// My attempt to part four
+class Garage extends Vehicle {
+  constructor(make, model, year, capacity) {
+    super(make, model, year);
+    let vehicles = [];
+    let startingCapacity = 0;
+    vehicles = vehicles;
+    startingCapacity = capacity;
   }
   add(vehicle) {
-    if (vehicles > capacity) {
-      return `Sorry were full`;
-    } else {
-      vehicle.push(vehicles[]);
+    if (vehicles.length < capacity.length) {
+      if (vehicle instanceof !Car || !Motorcycle) {
+        vehicle.push(vehicles);
+      } else {
+        return `The garage is full`;
+      }
     }
+  }
+}
+
+// Solution for Part four
+class Garage {
+  constructor(capacity) {
+    this.vehicles = [];
+    this.capacity = capacity;
+  }
+
+  add(newVehicle) {
+    if (!(newVehicle instanceof Vehicle)) {
+      return 'Only vehicles are allowed in here!';
+    }
+    if (this.vehicles.length >= this.capacity) {
+      return "Sorry, we're full.";
+    }
+    this.vehicles.push(newVehicle);
+    return 'Vehicle added!';
   }
 }
